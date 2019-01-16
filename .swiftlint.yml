@@ -12,6 +12,7 @@ disabled_rules: # rule identifiers to exclude from running
     - implicit_getter
     - discarded_notification_center_observer
     - compiler_protocol_init
+    - empty_enum_arguments
 excluded:
     - Pods
 

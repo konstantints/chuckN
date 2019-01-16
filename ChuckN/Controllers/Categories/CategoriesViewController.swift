@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
-class CategoriesViewController: UIViewController {
+class CategoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - UI
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Variables
+    var categories: Results<Category>!
+    
+    // MARK: - Private Variables
+    private let categoryCell = "categoryCell"
+    private var categoriesToken: NotificationToken!
     
     // MARK: - Override
     override func viewDidLoad() {
@@ -20,6 +28,19 @@ class CategoriesViewController: UIViewController {
         // Navigation items
         self.navigationItem.title = "Categories"
         self.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.title]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.title]
+        
+        // Get all categories
+        self.categories = try! Realm().objects(Category.self).sorted(byKeyPath: "title")
+        self.categoriesToken = self.categories.observe({ (c) in
+            switch c {
+            case .initial(_): ()
+            case .update(_, deletions: _, insertions: _, modifications: _):
+                self.tableView.reloadData()
+            case .error(_):()
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,14 +56,50 @@ class CategoriesViewController: UIViewController {
             //set NavigationBar
             self.navigationController?.view.backgroundColor = UIColor.background
             self.navigationController?.navigationBar.isTranslucent = false
-//            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.shadowImage = UIImage()
             self.navigationController?.navigationBar.tintColor = UIColor.main
             
             // Backgrounds
             self.view.backgroundColor = UIColor.background
             
             // TableView
-//            self.tableView.backgroundColor = UIColor.background
+            self.tableView.backgroundColor = UIColor.background
+            self.tableView.reloadData()
         }
+    }
+    
+    // MARK: - UITableViewDataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.categories.count
+    }
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: categoryCell, for: indexPath)
+        // Style cell
+        cell.backgroundColor = UIColor.background
+        cell.textLabel?.textColor = UIColor.text
+        cell.detailTextLabel?.textColor = UIColor.main
+        
+        let selectedView = UIView()
+        selectedView.backgroundColor = UIColor.title
+        selectedView.alpha = 0.5
+        
+        cell.selectedBackgroundView = selectedView
+        
+        // Set information on cell
+        cell.textLabel?.text = self.categories[indexPath.row].title.capitalized
+        cell.detailTextLabel?.text = "\(self.categories[indexPath.row].favorites)"
+        
+        return cell
+    }
+    
+    // MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let controller = UIStoryboard(name: Storyboards.facts.rawValue, bundle: nil).instantiateInitialViewController() as! FactsViewController
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -12,9 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var network: Network!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
+        // Set network and initial categories update
+        self.network = Network()
+        
         // Set statup view controller
         self.window?.rootViewController = UIStoryboard(name: Storyboards.categories.rawValue, bundle: nil).instantiateInitialViewController()!
         self.window?.makeKeyAndVisible()

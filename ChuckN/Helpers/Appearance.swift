@@ -18,6 +18,14 @@ extension UIColor {
     @nonobjc class var main: UIColor {
         return UIColor(red: 106.0 / 255.0, green: 130.0 / 255.0, blue: 150.0 / 255.0, alpha: 1.0)
     }
+    
+    @nonobjc class var title: UIColor {
+        return UIColor(red: 241 / 255.0, green: 90 / 255.0, blue: 36 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var text: UIColor {
+        return UIColor(red: 22.0 / 255.0, green: 38.0 / 255.0, blue: 46.0 / 255.0, alpha: 1.0)
+    }
 }
 
 // MARK: - UIView
