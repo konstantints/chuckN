@@ -1,0 +1,15 @@
+strings:
+  inputs: ChuckN/Localization/Base.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift4
+      output: ChuckN/Localization/Localizations.swift
+      params:
+        enumName: Localizations
+xcassets:
+  inputs:
+    - ChuckN/Images/Media.xcassets
+  outputs:
+    - templateName: swift4
+      output: ChuckN/Images/Images.swift
+      params:
+        enumName: Images
