@@ -11,4 +11,5 @@ import Foundation
 enum Storyboards: String {
     case categories = "Categories"
     case facts = "Facts"
+    case all = "All"
 }

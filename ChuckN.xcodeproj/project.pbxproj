@@ -26,6 +26,9 @@
 		B5970F0121EFC589000B0BAA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0021EFC589000B0BAA /* Network.swift */; };
 		B5970F0621F0847C000B0BAA /* FactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0521F0847C000B0BAA /* FactTableViewCell.swift */; };
 		B5970F0821F0A01A000B0BAA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0721F0A01A000B0BAA /* Extensions.swift */; };
+		B5970F0B21F0A7FB000B0BAA /* All.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5970F0A21F0A7FB000B0BAA /* All.storyboard */; };
+		B5970F0D21F0A81B000B0BAA /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0C21F0A81B000B0BAA /* AllViewController.swift */; };
+		B5970F0F21F0A8DD000B0BAA /* AllFatcTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0E21F0A8DD000B0BAA /* AllFatcTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		B5970F0021EFC589000B0BAA /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B5970F0521F0847C000B0BAA /* FactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactTableViewCell.swift; sourceTree = "<group>"; };
 		B5970F0721F0A01A000B0BAA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B5970F0A21F0A7FB000B0BAA /* All.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = All.storyboard; sourceTree = "<group>"; };
+		B5970F0C21F0A81B000B0BAA /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
+		B5970F0E21F0A8DD000B0BAA /* AllFatcTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFatcTableViewCell.swift; sourceTree = "<group>"; };
 		BFF72BD2469A05670FE05F5F /* Pods_ChuckN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChuckN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3975E4EC263D9315DA7BC3 /* Pods-ChuckN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChuckN.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChuckN/Pods-ChuckN.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +153,7 @@
 		B516CA9A21EFAEDA0002915F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B5970F0921F0A7ED000B0BAA /* All */,
 				B516CA9B21EFAEEE0002915F /* Categories */,
 				B5970EF521EFC203000B0BAA /* Facts */,
 			);
@@ -211,8 +218,18 @@
 			isa = PBXGroup;
 			children = (
 				B5970F0521F0847C000B0BAA /* FactTableViewCell.swift */,
+				B5970F0E21F0A8DD000B0BAA /* AllFatcTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B5970F0921F0A7ED000B0BAA /* All */ = {
+			isa = PBXGroup;
+			children = (
+				B5970F0A21F0A7FB000B0BAA /* All.storyboard */,
+				B5970F0C21F0A81B000B0BAA /* AllViewController.swift */,
+			);
+			path = All;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +299,7 @@
 				B516CABB21EFBB960002915F /* Localizable.strings in Resources */,
 				B516CA9021EFAE900002915F /* LaunchScreen.storyboard in Resources */,
 				B516CAA021EFAF960002915F /* Categories.storyboard in Resources */,
+				B5970F0B21F0A7FB000B0BAA /* All.storyboard in Resources */,
 				B516CAA421EFAFF30002915F /* Media.xcassets in Resources */,
 				B516CA8D21EFAE900002915F /* Assets.xcassets in Resources */,
 			);
@@ -386,6 +404,8 @@
 				B5970F0121EFC589000B0BAA /* Network.swift in Sources */,
 				B516CA9E21EFAF340002915F /* Storyboards.swift in Sources */,
 				B516CA8621EFAE8E0002915F /* AppDelegate.swift in Sources */,
+				B5970F0F21F0A8DD000B0BAA /* AllFatcTableViewCell.swift in Sources */,
+				B5970F0D21F0A81B000B0BAA /* AllViewController.swift in Sources */,
 				B5970EF921EFC244000B0BAA /* FactsViewController.swift in Sources */,
 				B5970F0621F0847C000B0BAA /* FactTableViewCell.swift in Sources */,
 				B516CABD21EFBBB00002915F /* Localizations.swift in Sources */,

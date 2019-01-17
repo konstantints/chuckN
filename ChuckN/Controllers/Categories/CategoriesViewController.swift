@@ -28,8 +28,6 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         // Navigation items
         self.navigationItem.title = Localizations.General.categories
         self.navigationItem.largeTitleDisplayMode = .automatic
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.title]
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.title]
         
         // Get all categories
         self.categories = try! Realm().objects(Category.self).sorted(byKeyPath: "title")
@@ -63,6 +61,8 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.shadowImage = UIImage()
             self.navigationController?.navigationBar.tintColor = UIColor.main
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.title]
+            self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.title]
             
             // Backgrounds
             self.view.backgroundColor = UIColor.background
@@ -75,9 +75,12 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
     
     // MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
         return self.categories.count
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,6 +96,13 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.selectedBackgroundView = selectedView
         
+        if indexPath.section == 0 {
+            cell.textLabel?.text = Localizations.General.all
+            cell.detailTextLabel?.text = nil
+            
+            return cell
+        }
+        
         // Set information on cell
         cell.textLabel?.text = self.categories[indexPath.row].title.capitalized
         cell.detailTextLabel?.text = "\(self.categories[indexPath.row].favorites)"
@@ -104,8 +114,13 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let controller = UIStoryboard(name: Storyboards.facts.rawValue, bundle: nil).instantiateInitialViewController() as! FactsViewController
-        controller.category = self.categories[indexPath.row]
-        self.navigationController?.pushViewController(controller, animated: true)
+        if indexPath.section == 0 {
+            let controller = UIStoryboard(name: Storyboards.all.rawValue, bundle: nil).instantiateInitialViewController()!
+            self.navigationController?.pushViewController(controller, animated: true)
+        } else {
+            let controller = UIStoryboard(name: Storyboards.facts.rawValue, bundle: nil).instantiateInitialViewController() as! FactsViewController
+            controller.category = self.categories[indexPath.row]
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
