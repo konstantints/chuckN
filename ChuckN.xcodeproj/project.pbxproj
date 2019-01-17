@@ -29,6 +29,7 @@
 		B5970F0B21F0A7FB000B0BAA /* All.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5970F0A21F0A7FB000B0BAA /* All.storyboard */; };
 		B5970F0D21F0A81B000B0BAA /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0C21F0A81B000B0BAA /* AllViewController.swift */; };
 		B5970F0F21F0A8DD000B0BAA /* AllFatcTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0E21F0A8DD000B0BAA /* AllFatcTableViewCell.swift */; };
+		B5970F1121F0BA9D000B0BAA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F1021F0BA9D000B0BAA /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B5970F0A21F0A7FB000B0BAA /* All.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = All.storyboard; sourceTree = "<group>"; };
 		B5970F0C21F0A81B000B0BAA /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
 		B5970F0E21F0A8DD000B0BAA /* AllFatcTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFatcTableViewCell.swift; sourceTree = "<group>"; };
+		B5970F1021F0BA9D000B0BAA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BFF72BD2469A05670FE05F5F /* Pods_ChuckN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChuckN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3975E4EC263D9315DA7BC3 /* Pods-ChuckN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChuckN.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChuckN/Pods-ChuckN.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 				B5970F0921F0A7ED000B0BAA /* All */,
 				B516CA9B21EFAEEE0002915F /* Categories */,
 				B5970EF521EFC203000B0BAA /* Facts */,
+				B5970F1021F0BA9D000B0BAA /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				B5970F0621F0847C000B0BAA /* FactTableViewCell.swift in Sources */,
 				B516CABD21EFBBB00002915F /* Localizations.swift in Sources */,
 				B5970EFF21EFC46C000B0BAA /* Fact.swift in Sources */,
+				B5970F1121F0BA9D000B0BAA /* MainViewController.swift in Sources */,
 				B5970F0821F0A01A000B0BAA /* Extensions.swift in Sources */,
 				B516CAB821EFBB200002915F /* Images.swift in Sources */,
 				B516CAA221EFAFA30002915F /* CategoriesViewController.swift in Sources */,

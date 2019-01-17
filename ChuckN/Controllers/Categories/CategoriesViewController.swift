@@ -13,6 +13,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
 
     // MARK: - UI
     @IBOutlet weak var tableView: UITableView!
+    var themeBarButton: UIBarButtonItem!
     
     // MARK: - Variables
     var categories: Results<Category>!
@@ -28,6 +29,10 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         // Navigation items
         self.navigationItem.title = Localizations.General.categories
         self.navigationItem.largeTitleDisplayMode = .automatic
+        
+        // Set theme button
+        self.themeBarButton = UIBarButtonItem(image: Images.theme.image.withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(self.themeButtonAction(sender:)))
+        self.navigationItem.rightBarButtonItem = themeBarButton
         
         // Get all categories
         self.categories = try! Realm().objects(Category.self).sorted(byKeyPath: "title")
@@ -58,6 +63,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         UIView.animate(withDuration: duration) {
             //set NavigationBar
             self.navigationController?.view.backgroundColor = UIColor.background
+            self.navigationController?.navigationBar.barTintColor = UIColor.background
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.shadowImage = UIImage()
             self.navigationController?.navigationBar.tintColor = UIColor.main
@@ -122,5 +128,12 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
             controller.category = self.categories[indexPath.row]
             self.navigationController?.pushViewController(controller, animated: true)
         }
+    }
+    
+    // MARK: - Actions
+    @objc func themeButtonAction(sender: UIBarButtonItem) {
+        let oldTheme = UserDefaults.standard.bool(forKey: "dark")
+        UserDefaults.standard.set(!oldTheme, forKey: "dark")
+        (UIApplication.shared.delegate as! AppDelegate).window!.didUpdatedAppearance(animated: true)
     }
 }

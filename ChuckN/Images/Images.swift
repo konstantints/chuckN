@@ -20,6 +20,7 @@
 internal enum Images {
   internal static let chuckLogo = ImageAsset(name: "chuck-logo")
   internal static let favorite = ImageAsset(name: "favorite")
+  internal static let theme = ImageAsset(name: "theme")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

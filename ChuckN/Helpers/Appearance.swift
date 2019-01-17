@@ -12,7 +12,19 @@ import UIKit
 // MARK: - UIColor
 extension UIColor {
     @nonobjc class var background: UIColor {
+        if UserDefaults.standard.bool(forKey: "dark") {
+            return UIColor(red: 29 / 255.0, green: 30 / 255.0, blue: 31 / 255.0, alpha: 1.0)
+        }
+        
         return UIColor.white
+    }
+    
+    @nonobjc class var themeButton: UIColor {
+        if UserDefaults.standard.bool(forKey: "dark") {
+            return UIColor(red: 222 / 255.0, green: 223 / 255.0, blue: 223 / 255.0, alpha: 1.0)
+        }
+        
+        return UIColor(red: 29 / 255.0, green: 30 / 255.0, blue: 31 / 255.0, alpha: 1.0)
     }
     
     @nonobjc class var main: UIColor {
@@ -24,6 +36,9 @@ extension UIColor {
     }
     
     @nonobjc class var text: UIColor {
+        if UserDefaults.standard.bool(forKey: "dark") {
+            return UIColor(red: 222 / 255.0, green: 223 / 255.0, blue: 223 / 255.0, alpha: 1.0)
+        }
         return UIColor(red: 22.0 / 255.0, green: 38.0 / 255.0, blue: 46.0 / 255.0, alpha: 1.0)
     }
 }
