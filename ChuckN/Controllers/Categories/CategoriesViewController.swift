@@ -26,13 +26,18 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         
         // Navigation items
-        self.navigationItem.title = "Categories"
+        self.navigationItem.title = Localizations.General.categories
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.title]
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.title]
         
         // Get all categories
         self.categories = try! Realm().objects(Category.self).sorted(byKeyPath: "title")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateAppearance(animated: false)
         self.categoriesToken = self.categories.observe({ (c) in
             switch c {
             case .initial(_): ()
@@ -43,9 +48,9 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.updateAppearance(animated: false)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.categoriesToken.invalidate()
     }
     
     override func updateAppearance(animated: Bool) {
@@ -100,6 +105,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         tableView.deselectRow(at: indexPath, animated: true)
         
         let controller = UIStoryboard(name: Storyboards.facts.rawValue, bundle: nil).instantiateInitialViewController() as! FactsViewController
+        controller.category = self.categories[indexPath.row]
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

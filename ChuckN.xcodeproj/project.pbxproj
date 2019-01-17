@@ -24,6 +24,8 @@
 		B5970EFD21EFC3C8000B0BAA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970EFC21EFC3C8000B0BAA /* Category.swift */; };
 		B5970EFF21EFC46C000B0BAA /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970EFE21EFC46C000B0BAA /* Fact.swift */; };
 		B5970F0121EFC589000B0BAA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0021EFC589000B0BAA /* Network.swift */; };
+		B5970F0621F0847C000B0BAA /* FactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0521F0847C000B0BAA /* FactTableViewCell.swift */; };
+		B5970F0821F0A01A000B0BAA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5970F0721F0A01A000B0BAA /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		B5970EFC21EFC3C8000B0BAA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B5970EFE21EFC46C000B0BAA /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 		B5970F0021EFC589000B0BAA /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B5970F0521F0847C000B0BAA /* FactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactTableViewCell.swift; sourceTree = "<group>"; };
+		B5970F0721F0A01A000B0BAA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BFF72BD2469A05670FE05F5F /* Pods_ChuckN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChuckN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3975E4EC263D9315DA7BC3 /* Pods-ChuckN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChuckN.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChuckN/Pods-ChuckN.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +167,7 @@
 			children = (
 				B516CA9D21EFAF340002915F /* Storyboards.swift */,
 				B516CAA621EFB2E60002915F /* Appearance.swift */,
+				B5970F0721F0A01A000B0BAA /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -170,8 +175,8 @@
 		B516CAA821EFB9130002915F /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				B516CABC21EFBBB00002915F /* Localizations.swift */,
 				B516CAB921EFBB960002915F /* Localizable.strings */,
+				B516CABC21EFBBB00002915F /* Localizations.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 		B5970F0221EFC97A000B0BAA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B5970F0521F0847C000B0BAA /* FactTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -381,8 +387,10 @@
 				B516CA9E21EFAF340002915F /* Storyboards.swift in Sources */,
 				B516CA8621EFAE8E0002915F /* AppDelegate.swift in Sources */,
 				B5970EF921EFC244000B0BAA /* FactsViewController.swift in Sources */,
+				B5970F0621F0847C000B0BAA /* FactTableViewCell.swift in Sources */,
 				B516CABD21EFBBB00002915F /* Localizations.swift in Sources */,
 				B5970EFF21EFC46C000B0BAA /* Fact.swift in Sources */,
+				B5970F0821F0A01A000B0BAA /* Extensions.swift in Sources */,
 				B516CAB821EFBB200002915F /* Images.swift in Sources */,
 				B516CAA221EFAFA30002915F /* CategoriesViewController.swift in Sources */,
 				B516CAA721EFB2E60002915F /* Appearance.swift in Sources */,

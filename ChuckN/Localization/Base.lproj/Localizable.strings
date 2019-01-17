@@ -8,3 +8,8 @@
 
 // MARK: - General
 "general.ok" = "Ok";
+"general.categories" = "Categories";
+"general.facts" = "Facts - %@";
+"general.new" = "New";
+"general.all" = "All";
+"general.favorites" = "Favorites";

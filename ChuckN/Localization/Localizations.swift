@@ -13,6 +13,18 @@ import Foundation
 internal enum Localizations {
 
   internal enum General {
+    /// All
+    internal static let all = Localizations.tr("Localizable", "general.all")
+    /// Categories
+    internal static let categories = Localizations.tr("Localizable", "general.categories")
+    /// Facts - %@
+    internal static func facts(_ p1: String) -> String {
+      return Localizations.tr("Localizable", "general.facts", p1)
+    }
+    /// Favorites
+    internal static let favorites = Localizations.tr("Localizable", "general.favorites")
+    /// New
+    internal static let new = Localizations.tr("Localizable", "general.new")
     /// Ok
     internal static let ok = Localizations.tr("Localizable", "general.ok")
   }
